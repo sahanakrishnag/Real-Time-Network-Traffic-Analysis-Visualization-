@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+
+# PCAP files
+*.pcap
+*.pcapng
+
+# GeoIP databases
+GeoLite2-City.mmdb
+GeoLite2-City/
+
+# IDE files
+.vs/
+*.sln
+*.pyproj
+
+# Uploads / temp
+uploads/
+Documents/
+api_key/
+
+# OS
+.DS_Store
+Thumbs.db
