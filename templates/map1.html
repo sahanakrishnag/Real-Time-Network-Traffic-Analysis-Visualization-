@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Network Tracker Map</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiXvwGk5eTTGWrBO8EabUzRgJbucLyyCc"></script>
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 2,
+                center: {lat: 0, lng: 0}
+            });
+
+            var locations = {{ locations|tojson }};
+
+            locations.forEach(function(loc) {
+                new google.maps.Marker({
+                    position: {lat: loc.lat, lng: loc.lon},
+                    map: map,
+                    title: loc.ip
+                });
+            });
+        }
+    </script>
+</head>
+<body {% if locations %}onload="initMap()" {% endif %}>
+
+    <h2>📡 Real-Time Network Packet Tracker</h2>
+
+    <!-- Upload form -->
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <label>Select a .pcap file to analyze:</label><br><br>
+        <input type="file" name="pcap_file" required>
+        <input type="submit" value="Upload & Visualize">
+    </form>
+
+    <hr>
+
+    <!-- Google Map -->
+    {% if locations %}
+    <div id="map" style="height: 600px; width: 100%;"></div>
+    {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Network Tracker Map</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiXvwGk5eTTGWrBO8EabUzRgJbucLyyCc"></script>
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 2,
+                center: {lat: 0, lng: 0}
+            });
+
+            var locations = {{ locations|tojson }};
+
+            locations.forEach(function(loc) {
+                new google.maps.Marker({
+                    position: {lat: loc.lat, lng: loc.lon},
+                    map: map,
+                    title: loc.ip
+                });
+            });
+        }
+    </script>
+</head>
+<body onload="initMap()">
+    <h2>Real-Time IP Tracker</h2>
+    <div id="map" style="height: 600px; width: 100%;"></div>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Network Tracker Map</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiXvwGk5eTTGWrBO8EabUzRgJbucLyyCc"></script>
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 2,
+                center: {lat: 0, lng: 0}
+            });
+
+            var locations = {{ locations|tojson }};
+
+            locations.forEach(function(loc) {
+                new google.maps.Marker({
+                    position: {lat: loc.lat, lng: loc.lon},
+                    map: map,
+                    title: loc.ip
+                });
+            });
+        }
+    </script>
+</head>
+<body onload="initMap()">
+    <h2>Real-Time IP Tracker</h2>
+    <div id="map" style="height: 600px; width: 100%;"></div>
+</body>
+</html>
