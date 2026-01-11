@@ -26,3 +26,6 @@ api_key/
 # OS
 .DS_Store
 Thumbs.db
+.env
+api_key/
+*.png
